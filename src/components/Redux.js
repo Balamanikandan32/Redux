@@ -1,5 +1,6 @@
-import {combineReducers, createStore} from "redux"
-
+import {applyMiddleware, combineReducers, createStore} from "redux"
+import {logger} from "redux-logger"
+import {thunk} from "redux-thunk"
 const Redux = () => {
   return (
     <div>
@@ -70,7 +71,7 @@ const rootReducer = combineReducers({
 
 // Store 
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer,applyMiddleware(logger,thunk))
 console.log("initial state", store.getState())
 const unsubscribe = store.subscribe(()=>console.log("updated state", store.getState()))
 store.dispatch({type : "buy_cake"}) //action
