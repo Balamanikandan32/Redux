@@ -1,3 +1,5 @@
+import {createStore} from "redux"
+
 const Redux = () => {
   return (
     <div>
@@ -36,3 +38,13 @@ const cakeReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+// Store 
+
+const store = createStore(cakeReducer)
+console.log("initial state", store.getState())
+const unsubscribe = store.subscribe(()=>console.log("updated state", store.getState()))
+store.dispatch({type : "buy_cake"}) //action
+store.dispatch(buycake()) // action creator
+unsubscribe()
+store.dispatch({type : "buy_cake"}) // after unsubscribe it stop to state changes will not call subscribe callback fn 
