@@ -1,11 +1,14 @@
-import AsyncAction from "./components/AsyncAction";
-import Redux from "./components/Redux"
+import Cake from "./components/Cake";
+import {Provider} from "react-redux";
+import store from "./components/Redux/Cakes/Store";
+
 function App() {
   return (
-    <div className="App">
-      <Redux />
-      <AsyncAction />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Cake />
+      </div>
+    </Provider>
   );
 }
 
