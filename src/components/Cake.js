@@ -4,7 +4,7 @@ import buyCake from "./Redux/Cakes/CakeAction";
 const Cake = (props) => {
     return (
         <div>
-            <h1>Number of cakes - {props.numOfCakes}</h1>
+            <h1>Number of cakes( normal connect ) - {props.numOfCakes}</h1>
             <button onClick={props.buyCake}>Buy Cake</button>
         </div>
     )

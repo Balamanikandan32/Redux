@@ -1,8 +1,9 @@
 import { BUY_CAKE } from "./CakeType"
 
-const buyCake = () => {
+const buyCake = (cake = 1) => {
     return {
-        type : BUY_CAKE
+        type : BUY_CAKE,
+        payload: cake
     }
 }
 
